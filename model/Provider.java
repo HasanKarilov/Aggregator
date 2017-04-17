@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by hanaria on 4/13/17.
+ * Этот класс будет обобщать способ получения данных о вакансиях. Выступает в качестве контекста
  */
 public class Provider {
     private Strategy strategy;
