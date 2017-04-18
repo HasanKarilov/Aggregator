@@ -3,6 +3,7 @@ package com.javarush.task.task28.task2810.view;
 import com.javarush.task.task28.task2810.Controller;
 import com.javarush.task.task28.task2810.vo.Vacancy;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -33,7 +34,18 @@ public class HtmlView implements View {
    private String getUpdatedFileContent(List<Vacancy> vacancies){
         return null;
    }
-   private void updateFile(String filePath) {
 
+   private void updateFile(String fileContent) {
+       try (FileWriter fileWriter = new FileWriter(filePath))
+       {
+           if (fileContent != null)
+           {
+               fileWriter.write(fileContent);
+           }
+       }
+       catch (IOException e)
+       {
+           e.printStackTrace();
+       }
    }
 }
