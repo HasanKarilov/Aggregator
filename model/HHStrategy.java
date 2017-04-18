@@ -16,6 +16,10 @@ import java.util.List;
  */
 public class HHStrategy implements Strategy {
 
+     /*
+       http://hh.ua/search/vacancy?text=java+ADDITIONAL_VALUE&page=PAGE_VALUE
+       ADDITIONAL_VALUE - It is city name      PAGE_VALUE - It is page value
+     */
     private static final String URL_FORMAT = "http://hh.ru/search/vacancy?text=java+%s&page=%d";
 
     @Override
