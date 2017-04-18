@@ -34,8 +34,7 @@ public class HHStrategy implements Strategy {
             Записоваем в Elements все данные дивов этого data-ga
             Из объекта Document получили список html-элементов с атрибутом "vacancy-serp__vacancy". Для каждого элемента создали объект вакансии и добавили его в возвращающий методом список.
              */
-
-            Elements plainVacancies = document.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy");
+            Elements plainVacancies = document.select("[data-qa=\"vacancy-serp__vacancy\"]");
             if (plainVacancies.size() == 0)
             {
                 break;
@@ -46,9 +45,10 @@ public class HHStrategy implements Strategy {
             {
                 Vacancy vacancy = new Vacancy();
                 rawVacancy = (Element) iterator.next();
-                vacancy.setTitle(rawVacancy.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy-title").first().text());
 
-                Elements salaries = rawVacancy.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy-compensation");
+                vacancy.setTitle(rawVacancy.select("[data-qa=\"vacancy-serp__vacancy-title\"]").first().text());
+
+                Elements salaries = rawVacancy.select("[data-qa=\"vacancy-serp__vacancy-compensation\"]");
                 if (salaries.size() > 0)
                 {
                     vacancy.setSalary(salaries.first().text());
@@ -57,12 +57,12 @@ public class HHStrategy implements Strategy {
                     vacancy.setSalary("");
                 }
 
-//doc.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy");
-                vacancy.setCity(rawVacancy.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy-address").first().text());
+
+                vacancy.setCity(rawVacancy.select("[data-qa=\"vacancy-serp__vacancy-address\"]").first().text());
                 //                 <a href="/employer/18231" class="bloko-link bloko-link_secondary" data-qa="vacancy-serp__vacancy-employer"> Epam Systems Ukraine</a>
-                vacancy.setCompanyName(rawVacancy.getElementsByAttributeValue("data-qa","vacancy-serp__vacancy-employer").first().text());
+                vacancy.setCompanyName(rawVacancy.select("[data-qa=\"vacancy-serp__vacancy-employer\"]").first().text());
                 vacancy.setSiteName(document.title());
-                vacancy.setUrl(rawVacancy.getElementsByAttributeValue("data-qa", "vacancy-serp__vacancy-title").first().attr("href"));
+                vacancy.setUrl(rawVacancy.select("[data-qa=\"vacancy-serp__vacancy-title\"]").first().attr("href"));
 
                 vacancies.add(vacancy);
             }
