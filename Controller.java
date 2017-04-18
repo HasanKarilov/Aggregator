@@ -30,7 +30,7 @@ public class Controller {
         ArrayList<Vacancy> vacs = new ArrayList<>();
         try{
             for (Provider provider:providers){
-                for (Vacancy vacancy:provider.getJavaVacancies("Kiev")){
+                for (Vacancy vacancy:provider.getJavaVacancies("Odessa")){
                     vacs.add(vacancy);
                 }
             }
@@ -38,5 +38,6 @@ public class Controller {
 
         }
         System.out.println(vacs.size());
+
     }
 }
