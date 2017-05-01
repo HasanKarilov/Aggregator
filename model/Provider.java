@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by hanaria on 4/13/17.
- * Этот класс будет обобщать способ получения данных о вакансиях. Выступает в качестве контекста
+ * Этот класс будет обобщать способ получения данных о вакансиях
  */
 public class Provider {
     private Strategy strategy;
@@ -20,9 +19,7 @@ public class Provider {
         this.strategy = strategy;
     }
 
-    public List<Vacancy> getJavaVacancies(String searchString) throws IOException
-    {
-        List<Vacancy> vacancies = strategy.getVacancies(searchString);
-        return vacancies;
+    public List<Vacancy> getJavaVacancies(String searchString) throws IOException {
+        return strategy.getVacancies(searchString);
     }
 }

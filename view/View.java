@@ -6,7 +6,7 @@ import com.javarush.task.task28.task2810.vo.Vacancy;
 import java.util.List;
 
 /**
- * Created by hanaria on 4/18/17.
+ * Created by hanaria on 5/2/17.
  */
 public interface View {
     void update(List<Vacancy> vacancies);

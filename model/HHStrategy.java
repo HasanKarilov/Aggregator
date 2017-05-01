@@ -12,14 +12,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by hanaria on 4/13/17.
+ * HeadHunter Strategy class
+ * Этот класс будет реализовывать конкретную стратегию работы с сайтом ХэдХантер (http://hh.ua/ и http://hh.ru/)
  */
 public class HHStrategy implements Strategy {
-
-     /*
-       http://hh.ua/search/vacancy?text=java+ADDITIONAL_VALUE&page=PAGE_VALUE
-       ADDITIONAL_VALUE - It is city name      PAGE_VALUE - It is page value
-     */
     private static final String URL_FORMAT = "http://hh.ru/search/vacancy?text=java+%s&page=%d";
 
     @Override
@@ -29,7 +25,9 @@ public class HHStrategy implements Strategy {
 
         for (int i = 0; ; i++)
         {
+            // Получаю элемент Document с помощью метода Document getDocument(String city, int page)
             Document document = getDocument(searchString, i);
+
             Elements plainVacancies = document.select("[data-qa=\"vacancy-serp__vacancy\"]");
             if (plainVacancies.size() == 0)
             {
@@ -61,6 +59,7 @@ public class HHStrategy implements Strategy {
                 vacancies.add(vacancy);
             }
         }
+
         return vacancies;
     }
 
@@ -69,7 +68,7 @@ public class HHStrategy implements Strategy {
         String url = String.format(URL_FORMAT, searchString, page);
         return Jsoup.connect(url)
                 .userAgent("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0")
-                .referrer("none")
+                .referrer("https://hh.ru/search/vacancy?text=java+%D0%BA%D0%B8%D0%B5%D0%B2")
                 .get();
     }
 }

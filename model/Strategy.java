@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by hanaria on 4/13/17.
+ * Будет отвечать за получение данных с сайта
  */
 public interface Strategy {
     List<Vacancy> getVacancies(String searchString) throws IOException;

@@ -1,10 +1,9 @@
 package com.javarush.task.task28.task2810.vo;
 
 /**
- * Created by hanaria on 4/13/17.
+ * Класс будет хранить данные о вакансии
  */
-public class Vacancy
-{
+public class Vacancy {
     private String title;
     private String salary;
     private String city;
@@ -12,63 +11,51 @@ public class Vacancy
     private String siteName;
     private String url;
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getSalary()
-    {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary)
-    {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
-    public String getCity()
-    {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(String city)
-    {
+    public void setCity(String city) {
         this.city = city;
     }
 
-    public String getCompanyName()
-    {
+    public String getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName)
-    {
+    public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
-    public String getSiteName()
-    {
+    public String getSiteName() {
         return siteName;
     }
 
-    public void setSiteName(String siteName)
-    {
+    public void setSiteName(String siteName) {
         this.siteName = siteName;
     }
 
-    public String getUrl()
-    {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url)
-    {
+    public void setUrl(String url) {
         this.url = url;
     }
 

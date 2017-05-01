@@ -8,16 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hanaria on 4/18/17.
+ * Created by hanaria on 5/2/17.
  */
 public class Model {
     private View view;
     private Provider[] providers;
 
-    public Model(View view, Provider... providers)
-    {
-        if (view == null || providers == null || providers.length == 0)
-        {
+    public Model(View view, Provider...providers){
+        if(view==null || providers==null || providers.length==0){
             throw new IllegalArgumentException();
         }
         this.view = view;
@@ -26,12 +24,10 @@ public class Model {
 
     public void selectCity(String city) throws IOException {
         List<Vacancy> vacancies = new ArrayList<>();
-        for (Provider provider : providers)
-        {
-            List<Vacancy> vacanciesFromCurrentProvider = provider.getJavaVacancies(city);
-            vacancies.addAll(vacanciesFromCurrentProvider);
+        for(Provider provider: providers){
+           List<Vacancy> vacanciesFromProvider = provider.getJavaVacancies(city);
+           vacancies.addAll(vacanciesFromProvider);
         }
         view.update(vacancies);
-
     }
 }
